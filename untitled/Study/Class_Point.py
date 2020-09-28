@@ -21,4 +21,3 @@ p2.set_coordinates(4, 6)
 d = p1.get_distance(p2)
 g = p1.get_distance(10)
 print(d)
-
