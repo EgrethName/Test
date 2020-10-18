@@ -3,45 +3,74 @@ class Triangle:
         self.__a = a
         self.__b = b
         self.__c = c
+        self.__sides = [a, b, c]
 
     @property
-    def property_perimeter(self):
-        self.perimeter = self.__a + self.__b + self.__c
-        return self.perimeter
+    def side_a(self):
+        return self.__a
 
-    @property_perimeter.setter
-    def property_perimeter(self, sides):
-        if len(sides) == 3:
-            self.__a = sides[0]
-            self.__b = sides[1]
-            self.__c = sides[2]
-        else:
-            raise Exception('Input three sides')
+    @side_a.setter
+    def side_a(self, value_a):
+        self.__a = value_a
 
     @property
-    def property_area(self):
-        self.perimeter = self.__a + self.__b + self.__c
-        self.perim_2 = self.perimeter / 2
+    def side_b(self):
+        return self.__b
+
+    @side_b.setter
+    def side_b(self, value_b):
+        self.__b = value_b
+
+    @property
+    def side_c(self):
+        return self.__c
+
+    @side_c.setter
+    def side_c(self, value_c):
+        self.__c = value_c
+
+    @property
+    def perimeter(self):
+        return self.__a + self.__b + self.__c
+
+    @property
+    def area(self):
+        self.perim_2 = self.perimeter/ 2
         area = (self.perim_2 * (self.perim_2 - self.__a) * (self.perim_2 - self.__b) * (self.perim_2 - self.__c)) ** 0.5
         return area
 
-    @property_area.setter
-    def property_area(self, sides):
-        try:
-            if len(sides) == 3:
-                self.__a = sides[0]
-                self.__b = sides[1]
-                self.__c = sides[2]
-            else:
-                raise Exception('Input three sides')
-        except TypeError:
-            print('Input three sides')
+
+class TriangleSides:
+    def __init__(self, a, b, c):
+        self.__sides = [a, b, c]
+
+    @property
+    def sides(self):
+        return self.__sides
+
+    @sides.setter
+    def sides(self, value):
+        if isinstance(value, list) or isinstance(value, tuple):
+            self.sides = value
+        else:
+            raise ValueError('передайте список или кортеж')
+
+    @property
+    def perimeter(self):
+        return sum(self.__sides)
+
+    @property
+    def area(self):
+        self.perim_2 = self.perimeter/ 2
+        area = (self.perim_2 * (self.perim_2 - self.sides[0]) * (self.perim_2 - self.sides[1]) * (self.perim_2 - self.sides[2])) ** 0.5
+        return area
 
 
 t = Triangle(1, 1, 1)
-print(t.property_area)
-print(t.property_perimeter)
-t.property_area = (2, 2, 2)
-t.property_perimeter = (2, 2, 2)
-print(t.property_area)
-print(t.property_perimeter)
+print(t.area)
+print(t.perimeter)
+t.side_a = 1
+t.side_b = 1
+t.side_c = 1
+print(t.area)
+print(t.perimeter)
