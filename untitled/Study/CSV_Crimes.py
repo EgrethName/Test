@@ -1,6 +1,6 @@
 import csv
 
-with open("Crimes.csv") as crimes:
+with open("Test_files/Crimes.csv") as crimes:
     crimes_reader = csv.reader(crimes)
     crimes_list = []
     for row in crimes_reader:

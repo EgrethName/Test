@@ -1,7 +1,7 @@
 import requests
 import json
 
-with open("dataset_24476_4.txt", "r") as data_set:
+with open("Test_files/dataset_24476_4.txt", "r") as data_set:
     data_list = [str(row).strip() for row in data_set]
 
 client_id = 'b822868ec4e1ed58edcc'

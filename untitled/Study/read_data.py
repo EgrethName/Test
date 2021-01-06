@@ -1,4 +1,4 @@
-text_data = open('dataset_3363_4.txt', 'r')
+text_data = open('Test_files/dataset_3363_4.txt', 'r')
 
 data_str = text_data.readlines()
 list_data = []
